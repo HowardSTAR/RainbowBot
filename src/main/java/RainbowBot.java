@@ -22,7 +22,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
 
                     if (text.equals("/all")) {
                         SendMessage sendMessage = new SendMessage();
-                        sendMessage.setText("ПОГНАЛИ В РАДУГУ ПАЧАНЫ: ");
+                        sendMessage.setText("ПОГНАЛИ В РАДУГУ \uD83C\uDF08 ПАЧАНЫ: ");
 //                        sendMessage.setText("ПОГНАЛИ В РАДУГУ ПАЧАНЫ\n @LtNice @VmiakoV @Rekane @faraboh @grSeva");
                         sendMessage.setParseMode(ParseMode.MARKDOWN);
                         sendMessage.setChatId(message.getChatId());
