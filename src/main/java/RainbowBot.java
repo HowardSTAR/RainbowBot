@@ -1,6 +1,8 @@
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
+import org.telegram.telegrambots.meta.api.objects.ChatMember;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -9,6 +11,9 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.sun.tools.doclint.Entity.or;
+import static com.sun.tools.doclint.Entity.times;
 
 public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPollingBot {
 
@@ -29,6 +34,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
     }
 
     private void AllTags(Update update) {
+        ChatMember chatMember = new ChatMember();
         if (update.hasMessage()) {
             Message message = update.getMessage();
 
@@ -40,6 +46,8 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     sendMessage.setText("ПОГНАЛИ В РАДУГУ \uD83C\uDF08 ПАЧАНЫ: "); // sendMessage.setText("ПОГНАЛИ В РАДУГУ ПАЧАНЫ\n @LtNice @VmiakoV @Rekane @faraboh @grSeva");
                     sendMessage.setParseMode(ParseMode.MARKDOWN);
                     sendMessage.setChatId(message.getChatId());
+
+                    message.getForwardSenderName();
 
                     //InlineKeyboardButton
                     InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
@@ -78,28 +86,31 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                 }
             }
         } else if (update.hasCallbackQuery()) {
+            DeleteMessage deleteMessage = new DeleteMessage();
+
             Message message = update.getCallbackQuery().getMessage();
+
             CallbackQuery callbackQuery = update.getCallbackQuery();
             String data = callbackQuery.getData();
             SendMessage sendMessage = new SendMessage().setParseMode(ParseMode.MARKDOWN).setChatId(message.getChatId());
 
             if (data.equals("@LtNice")) {
-                sendMessage.setText("@LtNice");
+                sendMessage.setText("@LtNice – жопа Дениса");
             }
             else if (data.equals("@grSeva")) {
-                sendMessage.setText("@grSeva");
+                sendMessage.setText("@grSeva – погнали");
             }
             else if (data.equals("@VmiakoV")) {
-                sendMessage.setText("@VmiakoV");
+                sendMessage.setText("@VmiakoV – только тебя ждем");
             }
             else if (data.equals("@Rekane")) {
-                sendMessage.setText("@Rekane");
+                sendMessage.setText("@Rekane – любимка");
             }
             else if (data.equals("@faraboh")) {
-                sendMessage.setText("@faraboh");
+                sendMessage.setText("@faraboh – идем рейтинг сливать");
             }
             else if (data.equals("@allGAY")) {
-                sendMessage.setText("@LtNice @VmiakoV @Rekane @faraboh @grSeva");
+                sendMessage.setText("Господа офицеры – @LtNice @VmiakoV @Rekane @faraboh @grSeva");
             }
 
             try {
