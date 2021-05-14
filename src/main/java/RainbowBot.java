@@ -6,6 +6,7 @@ import org.telegram.telegrambots.meta.api.objects.ChatMember;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -17,8 +18,9 @@ import static com.sun.tools.doclint.Entity.times;
 
 public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPollingBot {
 
-    public void onUpdateReceived(Update update) {
+    public void onUpdateReceived(Update update){
         AllTags(update);
+
         pdrBot(update);
     }
 
@@ -56,6 +58,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
                     List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
                     List<InlineKeyboardButton> keyboardButtonsRow3 = new ArrayList<>();
+                    List<InlineKeyboardButton> keyboardButtonsRow4 = new ArrayList<>();
 
                     InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
                     InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
@@ -63,6 +66,8 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     InlineKeyboardButton inlineKeyboardButton4 = new InlineKeyboardButton();
                     InlineKeyboardButton inlineKeyboardButton5 = new InlineKeyboardButton();
                     InlineKeyboardButton inlineKeyboardButton6 = new InlineKeyboardButton();
+
+                    ReplyKeyboardMarkup butt = new ReplyKeyboardMarkup();
 
                     keyboardButtonsRow1.add(inlineKeyboardButton1.setText("Дениска").setCallbackData("@LtNice"));
                     keyboardButtonsRow1.add(inlineKeyboardButton2.setText("Вадик").setCallbackData("@VmiakoV"));
@@ -87,10 +92,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                 }
             }
         } else if (update.hasCallbackQuery()) {
-            DeleteMessage deleteMessage = new DeleteMessage();
-
             Message message = update.getCallbackQuery().getMessage();
-
             CallbackQuery callbackQuery = update.getCallbackQuery();
             String data = callbackQuery.getData();
             SendMessage sendMessage = new SendMessage().setParseMode(ParseMode.MARKDOWN).setChatId(message.getChatId());
