@@ -52,6 +52,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     //InlineKeyboardButton
                     InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
                     List<List<InlineKeyboardButton>> inlineButtonsList = new ArrayList<>();
+
                     List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
                     List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
                     List<InlineKeyboardButton> keyboardButtonsRow3 = new ArrayList<>();
