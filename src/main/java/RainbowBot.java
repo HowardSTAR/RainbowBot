@@ -74,6 +74,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     keyboardButtonsRow2.add(inlineKeyboardButton3.setText("Севка").setCallbackData("@grSeva"));
                     keyboardButtonsRow2.add(inlineKeyboardButton4.setText("Фара").setCallbackData("@faraboh"));
                     keyboardButtonsRow3.add(inlineKeyboardButton5.setText("Сява").setCallbackData("@Rekane"));
+                    keyboardButtonsRow3.add(inlineKeyboardButton5.setText("Илюха").setCallbackData("@qwertyspamer"));
                     keyboardButtonsRow3.add(inlineKeyboardButton6.setText("ОБЩИЙ СБОР").setCallbackData("@allGAY"));
 
                     inlineButtonsList.add(keyboardButtonsRow1);
@@ -112,8 +113,11 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
             else if (data.equals("@faraboh")) {
                 sendMessage.setText("@faraboh – идем рейтинг сливать");
             }
+            else if (data.equals("@qwertyspamer")) {
+                sendMessage.setText("@qwertyspamer – давно не падали лицом в радугу");
+            }
             else if (data.equals("@allGAY")) {
-                sendMessage.setText("Господа офицеры – @LtNice @VmiakoV @Rekane @faraboh @grSeva");
+                sendMessage.setText("Господа офицеры, долг зовёт – @LtNice @VmiakoV @Rekane @faraboh @grSeva @qwertyspamer");
             }
 
             try {
