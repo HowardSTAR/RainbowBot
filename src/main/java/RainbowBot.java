@@ -1,6 +1,8 @@
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
+
+//import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
+
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.ChatMember;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -81,6 +83,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     inlineButtonsList.add(keyboardButtonsRow1);
                     inlineButtonsList.add(keyboardButtonsRow2);
                     inlineButtonsList.add(keyboardButtonsRow3);
+                    inlineButtonsList.add(keyboardButtonsRow4);
 
                     inlineKeyboardMarkup.setKeyboard(inlineButtonsList);
 
