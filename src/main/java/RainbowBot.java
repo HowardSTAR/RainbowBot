@@ -66,6 +66,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     InlineKeyboardButton inlineKeyboardButton4 = new InlineKeyboardButton();
                     InlineKeyboardButton inlineKeyboardButton5 = new InlineKeyboardButton();
                     InlineKeyboardButton inlineKeyboardButton6 = new InlineKeyboardButton();
+                    InlineKeyboardButton inlineKeyboardButton7 = new InlineKeyboardButton();
 
                     ReplyKeyboardMarkup butt = new ReplyKeyboardMarkup();
 
@@ -74,8 +75,8 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     keyboardButtonsRow2.add(inlineKeyboardButton3.setText("Севка").setCallbackData("@grSeva"));
                     keyboardButtonsRow2.add(inlineKeyboardButton4.setText("Фара").setCallbackData("@faraboh"));
                     keyboardButtonsRow3.add(inlineKeyboardButton5.setText("Сява").setCallbackData("@Rekane"));
-                    keyboardButtonsRow3.add(inlineKeyboardButton5.setText("Илюха").setCallbackData("@qwertyspamer"));
-                    keyboardButtonsRow3.add(inlineKeyboardButton6.setText("ОБЩИЙ СБОР").setCallbackData("@allGAY"));
+                    keyboardButtonsRow3.add(inlineKeyboardButton6.setText("Илюха").setCallbackData("@qwertyspamer"));
+                    keyboardButtonsRow4.add(inlineKeyboardButton7.setText("ОБЩИЙ СБОР").setCallbackData("@allGAY"));
 
                     inlineButtonsList.add(keyboardButtonsRow1);
                     inlineButtonsList.add(keyboardButtonsRow2);
