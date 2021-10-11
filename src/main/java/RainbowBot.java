@@ -1,4 +1,4 @@
-import org.telegram.telegrambots.meta.api.methods.ForwardMessage;
+import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
@@ -15,7 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPollingBot {
+public class RainbowBot extends TelegramLongPollingBot {
 
     public void onUpdateReceived(Update update){
         try {
@@ -38,26 +38,25 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
             if (message.hasText()) {
                 String text = message.getText();
 
-//                if(text.equals("хейт")){
-//                    SendMessage sendMessage = new SendMessage().setChatId(message.getChatId()).setText(text);
-//                    ForwardMessage forwardMessage = new ForwardMessage().setChatId(message.getChatId());
-//
-//                    forwardMessage.getMessageId();
-//
-//                    sendMessage.setParseMode(ParseMode.MARKDOWN);
-//                    sendMessage.setChatId(message.getChatId());
-//
-//                    message.getFrom().getUserName();
-//
-//                    sendMessage.setText("ПЯУ");
-////                    message.getReplyToMessage().isReply();
-//
-//                    try {
-//                        execute(sendMessage);
-//                    } catch (TelegramApiException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+                if (text.contains("радуга") || text.contains("радугу") || text.contains("заебался") || text.contains("устал")) {
+                    SendMessage sendMessage = new SendMessage().setChatId(message.getChatId()).setText(text);
+
+                    sendMessage.setParseMode(ParseMode.MARKDOWN);
+                    sendMessage.setChatId(message.getChatId());
+                    sendMessage.setReplyToMessageId(message.getMessageId());
+
+                    sendMessage.getReplyToMessageId();
+
+                    sendMessage.setText("Кто меня звал?");
+
+                    try {
+                        execute(sendMessage);
+
+                    } catch (TelegramApiException e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
         }
     }
@@ -75,6 +74,7 @@ public class RainbowBot extends org.telegram.telegrambots.bots.TelegramLongPolli
                     sendMessage.setText("ПОГНАЛИ В РАДУГУ \uD83C\uDF08 ПАЧАНЫ: "); // emoji Rainbow
                     sendMessage.setParseMode(ParseMode.MARKDOWN);
                     sendMessage.setChatId(message.getChatId());
+                    sendMessage.setReplyToMessageId(message.getMessageId());
 
                     message.getForwardSenderName();
 
